@@ -1,0 +1,165 @@
+@import 'media';
+
+@mixin font-face($family, $path, $weight: normal, $style: normal, $swap: swap) {
+    @font-face {
+        font-family: $family;
+        src: url('#{$path}.woff') format('woff'), url('#{$path}.woff2') format('woff2');
+        font-weight: $weight;
+        font-style: $style;
+        font-display: $swap;
+    }
+}
+
+@mixin title($size) {
+    font-size: $size;
+    color: $darkColor;
+    font-family: $boldFont;
+}
+
+@include font-face(lato-regular, /fonts/lato-regular-webfont, normal, normal, swap);
+@include font-face(lato-bold, fonts/lato-bold-webfont, bold, normal, swap);
+
+$primaryFont: lato-regular, sans-serif;
+$boldFont: lato-bold, sans-serif;
+
+$primarySizeFont: 16px;
+$smallSizeFont: 14px;
+$bigSizeFont: 18px; 
+$firstTitleFont: 36px;
+$secondTitleFont: 28px;
+
+$primaryColor: #4f4f4f;
+$blueColor: #00adee;
+$darkColor: #333333;
+$whiteColor: #ffffff;
+$headerColor: #F4F6F9;
+
+/* ------ Specification ------ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $primaryFont;
+    font-size: $primarySizeFont;
+    color: $primaryColor;
+}
+
+a, a:hover, a:active {
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+button {
+    background-color: transparent;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+a, button {
+    transition: all 0.5s ease;
+}
+
+button, button:hover, button:focus, button:active {
+  outline: none;
+}
+
+ul {
+    list-style: none;
+}
+
+h1 {
+    @include title($firstTitleFont);
+    letter-spacing: 0.03em;
+    font-weight: 500;
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1124px;
+  width: 100%;
+  padding: 0 5px;
+}
+/* ---------HEADER--------- */
+
+.header {
+    background: $headerColor url(../images/mobiles.png) no-repeat top right;
+    padding-top: 61px;
+    min-height: 665px;
+
+    &-logo {
+        margin-bottom: 133px;
+        display: inline-block;
+    }
+    
+    &-offer {
+        width: 50%;
+    }
+    
+    &-text {
+        margin: 30px 0 50px;
+        font-size: $bigSizeFont;
+        width: 77%;
+    }
+
+    &-download {
+        button + button {
+            margin-left: 36px;
+        }
+    }
+}
+/* ---------WHAT IT DOES--------- */
+
+.what-it-does {
+    min-height: 592px;
+    padding-top: 7vw;
+    display: flex;
+    background: 
+            linear-gradient(
+                270deg, 
+                #FFFFFF 5.16%, 
+                rgba(255, 255, 255, 0) 67.14%
+            ),
+            url(../images/Cristiano-Ronaldo.jpg) left top no-repeat,
+            rgba(255, 255, 255, 0.5);
+        background-size: 56% auto;
+    .wrapper {
+        display: flex;
+    }
+    &__video {
+        flex: 0 0 56%;
+        position: relative;
+    }
+    &__info {
+        flex: 1 1 auto;
+        background-color: $whiteColor;
+    }
+    &__card {
+        position: relative;
+        z-index: 2;
+        width: 25vw;
+    }
+    &__roller {
+        position: absolute;
+        left: 7vw;
+        top: 13vw;
+        width: 25vw;
+    }
+}
+
